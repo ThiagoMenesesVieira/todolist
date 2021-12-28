@@ -1,9 +1,6 @@
-import { useState } from 'react'
-
-import '../styles/tasklist.scss'
-
-import { FiTrash, FiCheckSquare } from 'react-icons/fi'
-
+import { useState } from 'react';
+import '../styles/tasklist.scss';
+import { FiTrash, FiCheckSquare } from 'react-icons/fi';
 import { uuid } from 'uuidv4';
 
 
@@ -16,21 +13,6 @@ interface Task {
 export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
-
-  function handleCreateNewTask() {
-    // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
-    if(!newTaskTitle) return;
-
-    const newTask = {
-      id: uuid(),
-      title: newTaskTitle,
-      isComplete: false
-    }
-
-    setTasks(oldStates => [...oldStates, newTask]);
-    setNewTaskTitle('');
-
-  }
 
   function handleCreateNewTask() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
